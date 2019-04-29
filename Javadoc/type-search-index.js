@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"pl.polsl.okeke.fabian.model","l":"Bank"},{"p":"pl.polsl.okeke.fabian","l":"Main"},{"p":"pl.polsl.okeke.fabian.view","l":"View"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"pl.polsl.okeke.fabian.model","l":"Bank"},{"p":"pl.polsl.okeke.fabian.exceptions","l":"BankAccountException"},{"p":"pl.polsl.okeke.fabian","l":"Main"},{"p":"pl.polsl.okeke.fabian.view","l":"View"}]

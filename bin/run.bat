@@ -1,2 +1,1 @@
-Java -jar FirstClass.jar go home 
-pause
+Java -jar FirstClass.jar 1234 Fabian 100 

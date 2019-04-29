@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"pl.polsl.okeke.fabian"},{"l":"pl.polsl.okeke.fabian.model"},{"l":"pl.polsl.okeke.fabian.view"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"pl.polsl.okeke.fabian"},{"l":"pl.polsl.okeke.fabian.exceptions"},{"l":"pl.polsl.okeke.fabian.model"},{"l":"pl.polsl.okeke.fabian.view"}]

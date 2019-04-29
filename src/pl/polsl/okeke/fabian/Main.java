@@ -26,6 +26,17 @@ public class Main {
         TreeMap <String, Bank> bankTreeMap = new TreeMap <> ();
 
         int ch;
+        if(args.length == 3) {
+            Bank bank = new Bank ();
+            bank.setAccountNumber ( args[0] );
+            bank.setName ( args[1] );
+            try {
+                bank.setBalance ( Integer.parseInt ( args[2] ) );
+            } catch(NumberFormatException e) {
+                bank.setBalance ( 0 );
+            }
+            bankTreeMap.put ( bank.getAccountNumber (), bank );
+        }
         do {
             view.options ();
             ch = view.readInt ();
@@ -84,6 +95,8 @@ public class Main {
                 case 6:
                     view.displayMessage ( "Good Bye.." );
                     break;
+
+
 
             }
         } while (ch != 5);  //run loop until menu 5 is  pressed

@@ -1,0 +1,75 @@
+#include <LiquidCrystal.h>
+#include <Ticker.h>
+#define LED_BUILTIN 14
+const int rs = 12, en = 13, d4 = 4, d5 = 0, d6 = 2, d7 = 14;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+Ticker flipper;
+volatile byte state = LOW;
+
+int adc_key_in  = 0;
+
+#define btnRIGHT  0
+#define btnUP     1
+#define btnDOWN   2
+#define btnLEFT   3
+#define btnSELECT 4
+#define btnNONE   5
+
+void changeState(){
+  digitalWrite(LED_BUILTIN, state);
+  state=!state;
+  Serial.println("Hello World!");
+ }
+
+ int read_LCD_buttons() {
+  adc_key_in = analogRead(0);
+  Serial.print(adc_key_in);
+  Serial.print('\n');
+  if (adc_key_in > 1000) return btnNONE;
+  if (adc_key_in < 50)   return btnRIGHT;
+  if (adc_key_in < 250)  return btnUP;
+  if (adc_key_in < 500)  return btnDOWN;
+  if (adc_key_in < 800)  return btnLEFT;
+  return btnNONE;
+}
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(9600);
+  flipper.attach(1.0, changeState);
+  lcd.begin(16, 2);
+  lcd.print("Hello IoT!");
+}
+
+// the loop function runs over and over again forever
+void loop() 
+{
+  lcd.setCursor(6, 1);
+  lcd.print(millis() / 1000);
+  lcd.setCursor(0, 1);
+  switch(read_LCD_buttons())
+  {
+     case btnRIGHT: {
+      lcd.print("RIGHT");
+      break;
+    }
+    case btnLEFT: {
+      lcd.print("LEFT ");
+      break;
+    }
+    case btnUP: {
+      lcd.print("UP   ");
+      break;
+    }
+    case btnDOWN: {
+      lcd.print("DOWN ");
+      break;
+    }
+    case btnNONE: {
+      lcd.print("     ");
+      break;
+    }
+  }
+}
